@@ -1,0 +1,22 @@
+@import "function";
+
+* {
+  @include box-sizing;
+}
+
+body {
+  margin: 0;
+  font-family: "Century Gothic", sans-serif;
+}
+
+@font-face {
+  font-family: 'Century Gothic';
+  src: url('/timeline/fonts/CenturyGothic.eot');
+  src: url('/timeline/fonts/CenturyGothic.eot?#iefix') format('embedded-opentype'),
+  url('/timeline/fonts/CenturyGothic.woff2') format('woff2'),
+  url('/timeline/fonts/CenturyGothic.woff') format('woff'),
+  url('/timeline/fonts/CenturyGothic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+

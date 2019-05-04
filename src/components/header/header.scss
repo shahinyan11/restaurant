@@ -1,0 +1,75 @@
+@import "../../function";
+
+.header-top {
+  position: relative;
+  height: 80px;
+  padding: 0 10px;
+  @include flex-init;
+  @include justify-content(space-between);
+  border-bottom: 1px solid $border-color;
+
+  .title {
+    font-size: 42px;
+  }
+
+  .center {
+    @include flex-center;
+
+    .icon {
+      color: #666;
+      font-size: 30px;
+    }
+
+    .info {
+      margin: 0 30px;
+      @include flex-init;
+      @include align-items(center);
+      @include flex-direction(column);
+
+      .date {
+        color: #999aa5;
+        font-size: 20px;
+      }
+
+      .button {
+        margin-top: 10px;
+        text-align: center;
+        background: #dddddd;
+        border: 1px solid black;
+        border-radius: 4px;
+        width: 100px;
+      }
+    }
+  }
+
+  .right {
+    @include flex-center;
+
+    .button {
+      &:first-child {
+        margin-right: 8px;
+      }
+
+      &.reservation {
+        background: #597eaa;
+        color: white;
+
+        .icon {
+          color: white;
+        }
+      }
+
+      border: 1px solid black;
+      height: 50px;
+      padding: 0 20px;
+      @include flex-center;
+
+      .icon {
+        margin-right: 10px;
+        font-size: 24px;
+      }
+
+    }
+  }
+
+}

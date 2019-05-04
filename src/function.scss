@@ -1,0 +1,49 @@
+$border-color : gray;
+
+@mixin flex-init() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($flex) {
+  -webkit-box-flex: $flex;
+  -moz-box-flex: $flex;
+  -webkit-flex: $flex;
+  -ms-flex: $flex;
+  flex: $flex;
+}
+
+@mixin flex-direction($data) {
+  -webkit-box-flex-direction: $data;
+  -moz-box-flex-direction: $data;
+  -webkit-flex-direction: $data;
+  -ms-flex-direction: $data;
+  flex-direction: $data;
+}
+
+@mixin justify-content($content) {
+  justify-content: $content;
+  -webkit-justify-content: $content;
+}
+
+@mixin align-items($content) {
+  align-items: $content;
+  -webkit-align-items: $content;
+}
+
+
+@mixin box-sizing() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+@mixin flex-center() {
+  @include flex-init;
+  @include align-items(center);
+  @include justify-content(center);
+}

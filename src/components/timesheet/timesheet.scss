@@ -1,0 +1,311 @@
+@import "../../function";
+
+
+.timesheet-vertical, .timesheet-vertical-stay {
+  width: 2px;
+  background: red;
+  position: fixed;
+  top: 110px;
+  height: 100%;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.current-time {
+    height: 100%;
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.timesheet-hover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 0;
+  width: 0;
+  background: #d5a6bd;
+  opacity: .7;
+}
+
+.timetable-root {
+  @include flex-init;
+
+  .filled-block {
+    position: relative;
+    @include flex-init;
+    border-radius: 6px;
+    border: 1px solid #333;
+    max-height: 30px;
+
+    .timesheet-drag {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+
+      > div {
+        position: absolute;
+      }
+
+      .top {
+        cursor: n-resize;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+      }
+
+      .right {
+        cursor: e-resize;
+        top: 0;
+        right: 0;
+        width: 5px;
+        height: 100%;
+      }
+
+      .left {
+        cursor: e-resize;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+      }
+
+      .bottom {
+        cursor: n-resize;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 5px;
+      }
+    }
+
+    > div {
+      width: 100%;
+
+      > * {
+        &:first-child {
+          padding-left: 20px;
+        }
+      }
+
+      i, span {
+        color: inherit !important;
+        padding-right: 10px;
+      }
+
+      i {
+        font-size: 22px !important;
+      }
+    }
+
+    &.walk-in {
+      background: #09323e;
+      color: #dddddd;
+    }
+
+    &.joined-table {
+      background: #09323e;
+      color: #dddddd;
+    }
+
+    &.to-be-validated {
+      background: #ec7427;
+      color: #ffffff;
+    }
+
+    &.partially-honoured {
+      background: #20B8cf;
+      color: #ffffff;
+    }
+
+    &.honoured {
+      background: #09323e;
+      color: #ffffff;
+    }
+
+    &.pending-charge {
+      background: #fffec8;
+      color: #000;
+    }
+
+    &.validated-confirmed {
+      background: #fff;
+      color: #000;
+    }
+
+    line-height: 30px;
+    color: white;
+
+    .fa {
+      font-size: 20px;
+      color: white;
+    }
+
+    .left, .right {
+      position: absolute;
+    }
+
+    .center {
+      width: 100%;
+      padding-left: 50px;
+    }
+
+    .left {
+      left: 10px;
+    }
+
+    .right {
+      right: 10px;
+    }
+  }
+
+  .cell {
+    min-width: 70px;
+    max-width: 70px;
+    min-height: 30px;
+    border-right: 1px solid $border-color;
+
+    &.moved {
+      background: #d5a6bd;
+    }
+
+    &.hover {
+      background: #d5a6bd;
+    }
+
+    //&:hover {
+    //  &:not(.filled) {
+    //    background: #e3e3e3;
+    //  }
+    //}
+
+
+  }
+
+  .head {
+    position: relative;
+    text-align: center;
+    line-height: 30px;
+    background: #FBFBFB;
+    margin: 0;
+    @include flex-init;
+    font-weight: bold;
+    border-bottom: 1px solid $border-color;
+    z-index: 10;
+  }
+
+  .aside {
+    position: relative;
+    min-width: 160px;
+    z-index: 11;
+    //border-right: 1px solid $border-color;
+    left: 0;
+
+    .side-placeholder {
+      background: #FBFBFB;
+      border-bottom: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+
+    }
+
+    .side-scroll {
+      border-right: 1px solid $border-color;
+
+      .name-room, .capacity-room {
+        background: #FBFBFB !important;
+      }
+    }
+
+    .side-restaurant {
+      @include flex-init;
+      border-right: 0;
+      min-height: 30px;
+      background: #95bcf2;
+
+      .placeholder-restaurant {
+        @include flex(1 auto);
+      }
+    }
+
+    .restaurant-name {
+      background: #95bcf2;
+      width: 110px;
+      //border-right: 1px solid $border-color;
+    }
+
+    .placeholder-restaurant {
+      background: #95bcf2;
+      width: 10px;
+      display: block;
+    }
+
+    .name, .group {
+      min-height: 30px;
+      line-height: 30px;
+    }
+
+    .list-item {
+      .group {
+        @include flex-init;
+
+        background: #FBFBFB;
+
+        &:nth-child(2n + 1) {
+          background: #EEF2F2;
+        }
+
+        .name-room {
+          width: 110px;
+          border-right: 1px solid $border-color;
+        }
+
+        div {
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+
+  .placeholder-row {
+    .row {
+      background: #FBFBFB;
+
+      &:nth-child(2n + 1) {
+        background: #EEF2F2;
+      }
+    }
+  }
+
+  .row {
+    @include flex-init;
+
+    &.row-restaurant {
+      min-height: 30px;
+      background: #95bcf2;
+      text-align: center;
+
+      span {
+        margin-left: -159px;
+        width: calc(100vw - 159px);
+        text-align: center;
+        line-height: 30px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .cell {
+        border-right: #95bcf2;
+      }
+    }
+
+  }
+
+
+}

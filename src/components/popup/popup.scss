@@ -1,0 +1,116 @@
+@import "../../function";
+
+.overlay {
+  &.inactive {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &.bg-none {
+    background: transparent;
+  }
+
+  background: rgba(0, 0, 0, .2);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+}
+
+.popup {
+  position: fixed;
+  background: white;
+  border: 1px solid $border-color;
+  z-index: 15;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  &.popup-edit-cell {
+    height: 270px;
+    width: 250px;
+  }
+
+  &.popup-new-cell {
+    height: 110px;
+    width: 250px;
+  }
+
+  &.timesheet-edit {
+    height: 400px;
+    width: 400px;
+  }
+
+
+  .head {
+    border-bottom: 1px solid $border-color;
+  }
+
+  .list {
+    &:not(.head) {
+      cursor: pointer;
+
+      &:hover {
+        background: #eee;
+      }
+    }
+
+    padding: 6px 10px;
+  }
+
+  &.timesheet-edit {
+    padding: 20px;
+
+    .form-group {
+      @include flex-init;
+      @include align-items(center);
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .icon-lists {
+        width: 100%;
+        @include flex-init;
+        padding: 10px 0;
+
+        i {
+          &.true{
+            color: #597eaa;
+          }
+          cursor: pointer;
+          font-size: 35px;
+          margin-right: 10px;
+        }
+      }
+
+      label {
+        min-width: 120px;
+        font-size: 13px;
+      }
+
+      input, select, textarea {
+        padding: 10px 4px;
+        @include flex(1 auto);
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      input[type='checkbox'] {
+        max-width: 10px;
+        margin-left: 0;
+      }
+
+      input {
+        max-height: 20px;
+      }
+    }
+  }
+}

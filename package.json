@@ -1,0 +1,46 @@
+{
+  "name": "react-timesheet",
+  "version": "0.1.0",
+  "private": true,
+  "hompage": "https://shahinyan11.github.io/restaurant",
+  "dependencies": {
+    "@types/jest": "23.3.13",
+    "@types/node": "10.12.18",
+    "@types/react": "16.7.20",
+    "@types/react-dom": "16.0.11",
+    "gh-pages": "^2.0.1",
+    "jquery": "^3.3.1",
+    "moment": "^2.24.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "react-scripts": "2.1.3",
+    "redux": "^4.0.1",
+    "rxjs": "^6.3.3",
+    "typescript": "3.2.4",
+    "uuid": "^3.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@types/jquery": "^3.3.29",
+    "@types/moment": "^2.13.0",
+    "@types/rx": "^4.1.1",
+    "node-sass": "^4.11.0"
+  }
+}
